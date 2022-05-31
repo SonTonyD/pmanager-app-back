@@ -7,10 +7,10 @@ const File = fapi.File;
 // Prepare to connect to MySQL with your secret environment variables
 const pool = mysql.createPool({
     connectionLimit: 10,
-    host: "localhost",
-    user: "root",
-    password: "ynot6803",
-    database: "pmanager",
+    host: "eu-cdbr-west-02.cleardb.net",
+    user: "bcdfd9ad3afd84",
+    password: "5b2ccf6f",
+    database: "heroku_93ded7fa79d1cea",
     multipleStatements:true
 });
 
