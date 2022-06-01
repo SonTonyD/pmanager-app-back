@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 global.__basedir = __dirname;
 
 const  multipart  =  require('connect-multiparty');
-const  multipartMiddleware  =  multipart({ uploadDir:  './uploads' }); 
+const  multipartMiddleware  =  multipart({ uploadDir:  '../tmp' }); 
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
@@ -43,7 +43,7 @@ app.post('/api/download', function(req, res,next){
   });*/
 
   app.get('/api/download/:filename', function(req, res){
-    const file = `${__dirname}/uploads/`+req.params.filename;
+    const file = `../tmp/`+req.params.filename;
     res.download(file); // Set disposition and send it.
   });
 
@@ -56,7 +56,7 @@ app.post('/api/upload', multipartMiddleware, (req, res) => {
     db.insertPath(req)
     .then(data => res.json(data))
     .catch(err => res.status(500).json(err));
-    fs.rename(`${__dirname}/uploads/`+replace(req.files.file.path),`${__dirname}/uploads/`+req.body.name, (error) => {
+    fs.rename(`../tmp/`+replace(req.files.file.path),`../tmp/`+req.body.name, (error) => {
         if (error) {
             console.log(error);
           }
