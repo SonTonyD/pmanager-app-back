@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 global.__basedir = __dirname;
 
 const  multipart  =  require('connect-multiparty');
-const  multipartMiddleware  =  multipart({ uploadDir:  './uploads' });
+const  multipartMiddleware  =  multipart({ uploadDir:  './uploads' }); 
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
